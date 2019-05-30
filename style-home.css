@@ -1,55 +1,41 @@
-/* Index.html styling elements */
-
 body{
-    display: block;
-    margin-left: 400px;
-    margin-right: 400px;
-    margin-top: 180px;
-    margin-bottom: 100px;
+    background: linear-gradient(-45deg, black, #666666, #777777, white);
 }
 
-input{
-    height: 40px;
-    width: 500px;
-    border: 1px #6f6f6f solid;    
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    font-size: 23px;
-    font-family: sans-serif;
-    margin-top: 25px;
-    color: 	#D3D3D3;
+.buttons{
+    display: inline-block;
+    position: absolute;
+    top: 10%;
+    right: 15%; 
+    /* background-color: black; */
+
 }
 
 button{
-    background-color: #666666;
-    border-radius: 5px;
-    height: 40px;
-    width: 500px;
+    height: 60px;
+    width: 90px;
     font-size: 20px;
+    background-color: #666666;
     font-family: sans-serif;
-    margin-bottom: 25px;
-    margin-top: 25px;
     color: white;
-}
-
-.container-login{
-    background-color: rgba(223, 223, 223, 0.8);
-    width: 600px;
-    height: 300px;
-    text-align: center;
-    margin-left: -50px;
-    margin-right: -50px;
-    color: gray;
-    box-shadow: 5px 10px 10px 0 rgb(223, 223, 223);
-}
-
-h2{
-    margin-top: 10px;
-    font-family: sans-serif;
-    font-weight: 100;
+    border: none;
+    transition: 2s ease-out;
+    margin-right: 15px;
+    /* animation: jump 1s linear infinite;
+    animation-play-state: paused; */
 }
 
 button:hover{
-    opacity: 0.4;
+    opacity: 0.6;
+    transform: scale(1.04);
+    /* animation-play-state: running; */
 }
+
+/* @keyframes jump{
+    0%{
+        top: 13%;
+    }
+    100%{
+        bottom: 13%;
+    }
+} */
