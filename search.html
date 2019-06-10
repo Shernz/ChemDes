@@ -1,14 +1,10 @@
-{% block content %}
-{% if user.is_authenticated %}
-	{% load staticfiles %}
+<body style ="background :url(https://www.balajiprinters.com/wp-content/uploads/2016/07/994.jpg)">
+{% load staticfiles %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-    
-    <!--body background="removewater.png"-->
-	<!--body style ="background :url(https://www.balajiprinters.com/wp-content/uploads/2016/07/994.jpg)"-->
-</head>
+    </head>
 
 <body>
 
@@ -59,17 +55,16 @@
               <span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;IMPORT
           </a>
             </li>
-			<form class="navbar-form navbar-right" role="search" method="GET" action="{% url 'search' %}">
+          
+		  
+        <form class="navbar-form navbar-right" role="search" method="GET" action="{% url 'search' %}">
 			{% csrf_token %}
          <div class="form-group">
-           <input type="text" name="search" placeholder="Compound name">
-           
+           <input type="text"  placeholder="Compound name" name='search'>
+           </div>
            <button type="submit" class="btn btn-default">Search</button>
-		   </div>
           </form>
-          </ul>
-		  
-        
+		  </ul>
           <ul class="nav navbar-nav navbar-right">
             
 			
@@ -93,34 +88,18 @@
         </div>
         </div>
   </nav>
-  
-  
-		  
-		  <br>
-  <CENTER><B><p style="font-family:Cooper;FONT-SIZE:50">CHEMPORTAL</p></B></CENTER>
-  
-  </div></div>
-  <div id="particles-js"></div>
-{% block body %}
-{% endblock %}
-
-	<center><p style="font-family:Arial;font-size:20">Hi {{ user.username }}! Welcome to chemportal!!</p></center>
-	<br>
-	<br>
-	<br>
-	<br>
+  <h2><b>RELATED RESULTS</b><br></h2>
+ {% if books %}
+{% for each_book in books %} 
+  ___________________________________________________________________________________________________<br>  
+    <b>NAME:</B>{{each_book.name}}<br>
+	<b>SMILE:</B>{{each_book.smile}}<br>
+    <b>BOLING POINT:</B>{{each_book.bp}}<br>
+	<b>MELTING POINT:</B>{{each_book.mp}}<br>
+	<b>HEAT OF FORMATION:</B>{{each_book.hof}}<br>
+	<b>HEAT OF COMBUSTION:</B>{{each_book.hoc}}<br>
+	<b>MOLECULAR WEIGHT:</B>{{each_book.mw}}<br>
+	<b>MOLECULAR FORMULA:</B>{{each_book.mf}}<br>
 	
-	<center><p style ="font-family:Arial">chemportal is a web portal concept which provides web interface for high energy chemical molecule.The portal provides a interface for :</p></center>
-  <center><p style="font-family:Arial">			This is developed for web browsing and predicting high energy molecules with predicted and experimental properties</p></center>
-  <center><p style="font-family:Arial">	Database updates can be easily provided to the web portal.Registered users can update the data that will be verified by the administrator.</p></center>
-  </br>
-	
-	</div>
-{% else %}
-<body style ="background :url(https://www.balajiprinters.com/wp-content/uploads/2016/07/994.jpg)">
-
-
-  <center><p style="font-style:Cooper"><b><h1>CHEM PORTAL LOGIN</h1></b><p></center>
-  <center><a href="{% url 'login' %}"><h2>login</h2></a></center>
+{% endfor %}
 {% endif %}
-{% endblock %}
